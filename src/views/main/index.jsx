@@ -2,20 +2,9 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import CinemaList from '../../components/cinemalist';
 import styles from '../../views/main/styles'
-import { getCinemas } from '../../services/requestService'
+import { connect } from 'react-redux'
 
 class Main extends React.Component {
-  state = {
-    cinemas: [],
-    }
-  async componentDidMount() {
-    await this._fetchItems()
-  }
-  async _fetchItems() {
-    const cinemas = await getCinemas()
-    this.setState({ cinemas: cinemas})
-  }
-
 
   static navigationOptions = ({ navigation }) => {
     return {
@@ -34,15 +23,18 @@ class Main extends React.Component {
   }
 
   render() {
-    const { cinemas } = this.state;
     return (
       <View style={{ flex: 1}}>
         <CinemaList
-          cinemas={ cinemas }
+          cinemas={ this.props.cinemas }
         />
       </View>
     )
   }
 }
 
-export default Main; // Returns a connected component
+
+const mapStateToProps = ({ cinema }) => ({ cinemas: cinema })
+
+
+export default connect(mapStateToProps)(Main); // Returns a connected component

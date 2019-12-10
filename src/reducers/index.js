@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import contact from './contactReducer'
+import cinema from './cinemaReducer'
 
 export default combineReducers({
-  contact,
+  cinema,
 });
