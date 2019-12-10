@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import MovieDetail from '../../components/moviedetail';
 import styles from '../../views/main/styles'
-import { getMovies } from '../../services/requestService'
+import { connect } from 'react-redux'
+
 
 class Movie extends React.Component {
   state = {
@@ -15,25 +16,12 @@ class Movie extends React.Component {
   async _fetchItems() {
     const { navigation } = this.props
     const movieId = navigation.getParam('id', '')
-    const movies = await getMovies()
+    const movies = this.props.movies
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].id === movieId) {
-        movies[i].genres = this.genresToString(movies[i].genres)
         this.setState({ movie: movies[i] })
       }
     }
-  }
-
-  genresToString(genres) {
-    let retString = ""
-    for (let i = 0; i < genres.length; i++) {
-      if ( i === genres.length - 1 ){
-        retString += genres[i].Name
-      } else {
-        retString += genres[i].Name + ", "
-      }
-    }
-    return retString
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -47,7 +35,7 @@ class Movie extends React.Component {
   }
 
   render() {
-    const { movie } = this.state;
+    const { movie } = this.state
     return (
       <View style={{ flex: 1}}>
         <MovieDetail
@@ -58,4 +46,8 @@ class Movie extends React.Component {
   }
 }
 
-export default Movie; // Returns a connected component
+const mapStateToProps = ({ movie }) => ({
+  movies: movie
+ })
+
+export default connect(mapStateToProps)(Movie);
