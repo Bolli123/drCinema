@@ -16,6 +16,23 @@ const fixJson = async (obj) => {
   return retJson
 }
 
+const genresToString = async (response) => {
+  let retMovies = response
+  let genres = []
+  for (let i = 0; i < retMovies.length; i++) {
+    let retString = ''
+    genres = retMovies[i].genres
+    for (let j = 0; j < genres.length; j++) {
+      if (j === genres.length - 1) {
+        retString += genres[j].Name
+      } else {
+        retString += genres[j].Name + ", "
+      }
+    }
+    retMovies[i].genres = retString
+  }
+  return retMovies
+}
 
 export const getCinemas = async () => {
   try {
@@ -30,8 +47,9 @@ export const getCinemas = async () => {
 
 export const getMovies = async () => {
   try {
-    const response = await instance.get('/movies');
-    return response.data
+    let response = await instance.get('/movies');
+    response = await genresToString(response.data)
+    return response
   } catch (error) {
     console.error(error);
     return []
@@ -40,8 +58,9 @@ export const getMovies = async () => {
 
 export const getUpcomingMovies = async () => {
   try {
-    const response = await instance.get('/upcoming');
-    return response.data
+    let response = await instance.get('/upcoming');
+    response = await genresToString(response.data)
+    return response
   } catch (error) {
     console.error(error);
     return []
