@@ -30,13 +30,19 @@ const MovieDetail = ({
       <Text>
         {movie.genres}
       </Text>
-      {showtimes.map(station => (
-        <Button
-          key={station.purchase_url}
-          title={station.time}
-          onPress={() => { Linking.openURL(station.purchase_url); }}
-        />
-      ))}
+      {
+        showtimes.length === 0
+          ?
+          <></>
+          :
+          showtimes.map(station => (
+            <Button
+              key={station.purchase_url}
+              title={station.time}
+              onPress={() => { Linking.openURL(station.purchase_url); }}
+            />
+          ))
+      }
     </View>
   </View>
 );
