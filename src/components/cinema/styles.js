@@ -18,7 +18,7 @@ export default StyleSheet.create({
   name: {
     flex: 1.2,
     marginRight: 30,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold'
   },
   website: {

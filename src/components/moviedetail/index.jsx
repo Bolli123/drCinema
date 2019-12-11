@@ -22,9 +22,15 @@ const MovieDetail = ({
         <Text style={styles.genre}>
           {movie.genres}
         </Text>
-        <Text style={styles.length}>
-          Lengd: {movie.durationMinutes} mín.
-        </Text>
+        {
+          showtimes.length !== 0
+            ?
+              <Text style={styles.length}>
+                Lengd: {movie.durationMinutes} mín.
+              </Text>
+            :
+          <></>
+        }
       </View>
     </View>
     <Text style={styles.plot}>

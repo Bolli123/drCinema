@@ -4,7 +4,7 @@ const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZGVlNGY1YW
 
 const instance = axios.create({
   baseURL: 'http://api.kvikmyndir.is',
-  timeout: 1000,
+  timeout: 10000,
   headers: { 'x-access-token': accessToken }
 });
 
