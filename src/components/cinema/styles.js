@@ -8,27 +8,25 @@ export default StyleSheet.create({
     overflow: 'hidden',
   },
   content: {
-    flex: 3,
-    justifyContent: 'center'
+    flex: 1,
+    flexDirection: 'row',
+    padding: 15,
+    alignContent: 'center',
+    borderBottomColor: '#e9e9e9',
+    borderBottomWidth: 2,
   },
-  text: {
-    marginLeft: 20,
+  name: {
+    flex: 1.2,
+    marginRight: 30,
     fontSize: 20,
+    fontWeight: 'bold'
   },
-  checkmark: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-    fontSize: 25,
-    color: '#51CE3D'
+  website: {
+    flex: 1,
+    fontSize: 15,
+    color: 'grey'
   },
   contactContainer: {
     flex: 1,
-    flexDirection: 'row',
-    padding: 10,
-    alignContent: 'stretch',
-    borderBottomColor: '#e9e9e9',
-    borderBottomWidth: 2,
-    margin: 10
   },
 });

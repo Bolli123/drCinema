@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 import CinemaDetail from '../../components/cinemadetail';
 import MovieList from '../../components/movielist'
-import styles from '../../views/main/styles'
+import styles from '../../views/cinema/styles'
 import { connect } from 'react-redux'
 
 class Cinema extends React.Component {
@@ -46,18 +46,30 @@ class Cinema extends React.Component {
     }
   }
 
+  displayCaption() {
+  const { movies } = this.state;
+  if (movies.length == 0) {
+    return <Text style={styles.movies}>Engar myndir í sýningu</Text>;
+  } else {
+    return <Text style={styles.movies}>Myndir í sýningu:</Text>
+  }
+}
+
   render() {
     const { cinema, movies } = this.state;
     return (
-      <View style={{ flex: 1}}>
-        <CinemaDetail
-          cinema={cinema}
-        />
-        <MovieList
-          movies={movies}
-          cinemaId={cinema.id}
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <CinemaDetail
+            cinema={cinema}
+          />
+          {this.displayCaption()}
+          <MovieList
+            movies={movies}
+            cinemaId={cinema.id}
+          />
+        </View>
+      </ScrollView>
     )
   }
 }

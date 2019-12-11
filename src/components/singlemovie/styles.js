@@ -14,14 +14,11 @@ export default StyleSheet.create({
     marginLeft: 20,
     fontSize: 20,
   },
-  checkmark: {
-    position: 'absolute',
-    top: 15,
-    right: 15,
-    fontSize: 25,
-    color: '#51CE3D'
+  genre: {
+    marginLeft: 20,
+    fontSize: 15,
   },
-  contactContainer: {
+  container: {
     flex: 1,
     flexDirection: 'row',
     padding: 10,

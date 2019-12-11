@@ -9,21 +9,21 @@ const Cinema = ({
   cinema
 }) => (
   <View>
-    <View>
-      <Text>
+    <View style={styles.container}>
+      <Text style={styles.name}>
         {cinema.name}
       </Text>
-      <Text>
+      <Text style={styles.description}>
         {cinema.description}
       </Text>
-      <Text>
+      <Text style={styles.address}>
         {cinema.address},
         {cinema.city}
       </Text>
-      <Text>
+      <Text style={styles.address}>
         {cinema.phone}
       </Text>
-      <Text>
+      <Text style={styles.address}>
         {cinema.website}
       </Text>
     </View>

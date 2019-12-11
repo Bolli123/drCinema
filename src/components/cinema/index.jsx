@@ -12,15 +12,13 @@ const Cinema = ({
     activeOpacity={0.8}
     onPress={() => navigate('Cinema', { id })}
   >
-    <View style={styles.cinemaContainer}>
-      <View style={styles.content}>
-        <Text style={styles.text}>
-          {name}
-        </Text>
-        <Text>
-          {website}
-        </Text>
-      </View>
+    <View style={styles.content}>
+      <Text style={styles.name}>
+        {name}
+      </Text>
+      <Text style={styles.website}>
+        {website}
+      </Text>
     </View>
   </TouchableOpacity>
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, ScrollView } from 'react-native';
 import MovieDetail from '../../components/moviedetail';
 import styles from '../../views/main/styles'
 import { connect } from 'react-redux'
@@ -77,12 +77,14 @@ class Movie extends React.Component {
   render() {
     const { movie, showtimes } = this.state
     return (
-      <View style={{ flex: 1}}>
-        <MovieDetail
-          movie={movie}
-          showtimes={showtimes}
-        />
-      </View>
+      <ScrollView>
+        <View style={{ flex: 1}}>
+          <MovieDetail
+            movie={movie}
+            showtimes={showtimes}
+          />
+        </View>
+      </ScrollView>
     )
   }
 }

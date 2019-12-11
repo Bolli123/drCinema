@@ -10,4 +10,10 @@ export default StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
   },
+  button: {
+    color: 'white',
+    padding: 15,
+    fontSize: 18,
+    fontWeight: 'bold'
+  }
 })

@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
-  selectedText: {
-    fontSize: 20,
+  container: {
+    flex: 1,
+    flexDirection: 'column',
   },
-  block_counter: {
-    position: 'absolute',
-    bottom: 0,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
+  movies: {
+    textAlign: 'center',
     width: '100%',
-  },
+    fontSize: 20,
+    margin: 5,
+  }
 })

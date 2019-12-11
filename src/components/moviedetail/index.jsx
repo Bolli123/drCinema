@@ -8,39 +8,44 @@ import { Entypo } from '@expo/vector-icons';
 const MovieDetail = ({
   movie, showtimes
 }) => (
-  <View>
-    <View>
+  <View style={styles.container}>
+    <View style={styles.titleContent}>
       <Image
         style={styles.image}
         resizeMode="cover"
         source={{ uri: movie.poster }}
       />
-      <Text>
-        {movie.title}
-      </Text>
-      <Text>
-        {movie.year}
-      </Text>
-      <Text>
-        Plot: {movie.plot}
-      </Text>
-      <Text>
-        Duration: {movie.durationMinutes}
-      </Text>
-      <Text>
-        {movie.genres}
-      </Text>
+      <View style={styles.content}>
+        <Text style={styles.text}>
+          {movie.title} - {movie.year}
+        </Text>
+        <Text style={styles.genre}>
+          {movie.genres}
+        </Text>
+        <Text style={styles.length}>
+          Lengd: {movie.durationMinutes} mín.
+        </Text>
+      </View>
+    </View>
+    <Text style={styles.plot}>
+      {movie.plot}
+    </Text>
+    <View style={styles.showTimes}>
       {
         showtimes.length === 0
           ?
           <></>
           :
           showtimes.map(station => (
-            <Button
+            <View
+              style={styles.showButton}
               key={station.purchase_url}
-              title={station.time}
-              onPress={() => { Linking.openURL(station.purchase_url); }}
-            />
+            >
+              <Button
+                title={station.time}
+                onPress={() => { Linking.openURL(station.purchase_url); }}
+              />
+            </View>
           ))
       }
     </View>

@@ -9,6 +9,7 @@ const MovieList = ({
   <View style={{ flex: 1 }}>
     <FlatList
       numColumns={1}
+      scrollEnabled={false}
       data={movies.sort((a, b) => b.year.localeCompare(a.year))}
       renderItem={({
         item: {
