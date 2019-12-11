@@ -7,11 +7,11 @@ import { Entypo } from '@expo/vector-icons';
 
 
 const SingleMovie = ({
-  title, id, year, genres, poster, navigation: { navigate }
+  title, id, year, genres, poster, cinemaId, navigation: { navigate }
 }) => (
   <TouchableOpacity
     activeOpacity={0.8}
-    onPress={() => navigate('Movie', { id })}
+    onPress={() => navigate('Movie', { id, cinemaId })}
   >
     <View>
       <Image
@@ -40,6 +40,11 @@ SingleMovie.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  cinemaId: PropTypes.number
+}
+
+SingleMovie.defaultProps = {
+  cinemaId: null
 }
 
 export default withNavigation(SingleMovie);

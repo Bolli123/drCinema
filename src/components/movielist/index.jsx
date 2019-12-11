@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SingleMovie from '../singlemovie'
 
 const MovieList = ({
-  movies
+  movies, cinemaId
 }) => (
   <View style={{ flex: 1 }}>
     <FlatList
@@ -22,6 +22,7 @@ const MovieList = ({
             year={year}
             genres={genres}
             poster={poster}
+            cinemaId={cinemaId}
           />
         );
       }}
@@ -37,6 +38,11 @@ MovieList.propTypes = {
     poster: PropTypes.string.isRequired,
     genres: PropTypes.string.isRequired,
   })).isRequired,
+  cinemaId: PropTypes.number,
+}
+
+MovieList.defaultProps = {
+  cinemaId: null
 }
 
 export default MovieList;

@@ -21,7 +21,6 @@ class Cinema extends React.Component {
     const cinemaId = navigation.getParam('id', '')
     const cinemas = this.props.cinemas
     const movies = this.props.movies
-    console.log(this.props)
     for (let i = 0; i < cinemas.length; i++) {
       if (cinemas[i].id === cinemaId) {
         this.setState({ cinema: cinemas[i] })
@@ -56,6 +55,7 @@ class Cinema extends React.Component {
         />
         <MovieList
           movies={movies}
+          cinemaId={cinema.id}
         />
       </View>
     )
