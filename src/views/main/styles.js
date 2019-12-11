@@ -12,8 +12,8 @@ export default StyleSheet.create({
   },
   button: {
     color: 'white',
-    padding: 15,
-    fontSize: 18,
+    paddingRight: 15,
+    fontSize: 12,
     fontWeight: 'bold'
   }
 })

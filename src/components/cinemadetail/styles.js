@@ -11,7 +11,6 @@ export default StyleSheet.create({
   },
   description: {
     fontSize: 15,
-    textAlign: 'justify',
     lineHeight: 25,
     marginBottom: 5,
   },
