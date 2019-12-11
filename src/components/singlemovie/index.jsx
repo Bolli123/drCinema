@@ -13,7 +13,7 @@ const SingleMovie = ({
     activeOpacity={0.8}
     onPress={() => navigate('Movie', { id, cinemaId })}
   >
-    <View>
+    <View style={styles.container}>
       <Image
         style={styles.image}
         resizeMode="cover"
@@ -23,7 +23,7 @@ const SingleMovie = ({
         <Text style={styles.text}>
           {title} - {year}
         </Text>
-        <Text>
+        <Text style={styles.genre}>
           {genres}
         </Text>
       </View>

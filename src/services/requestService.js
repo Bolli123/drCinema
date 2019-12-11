@@ -12,6 +12,8 @@ const fixJson = async (obj) => {
   let retJson = obj
   retJson = JSON.stringify(retJson.data)
   retJson = retJson.replace(/\\t/g, '')
+  retJson = retJson.replace(/<br>/g, ' ')
+  retJson = retJson.replace(/<b>/g, '')
   retJson = JSON.parse(retJson)
   return retJson
 }

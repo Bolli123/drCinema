@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import CinemaList from '../../components/cinemalist';
 import styles from '../../views/main/styles'
 import { connect } from 'react-redux'
@@ -12,10 +12,11 @@ class Main extends React.Component {
         backgroundColor: '#6ea6ff',
       },
       headerRight: () => (
-        <Button
+        <TouchableOpacity
           onPress={() => navigation.navigate('UpcomingMovies', { })}
-          title="Upcoming Movies"
-        />
+        >
+        <Text style={styles.button}>Upcoming Movies</Text>
+        </TouchableOpacity>
       ),
       headerTintColor: '#fff',
       headerTitle: 'Cinemas',
