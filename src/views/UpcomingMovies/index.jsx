@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, ScrollView } from 'react-native';
-import MovieList from '../../components/movielist'
+import MovieList from '../../components/upcomingmovielist'
 import styles from '../../views/main/styles'
 import { connect } from 'react-redux'
 

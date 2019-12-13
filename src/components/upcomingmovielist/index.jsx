@@ -10,17 +10,15 @@ const MovieList = ({
     <FlatList
       numColumns={1}
       scrollEnabled={false}
-      data={movies}
-      renderItem={({
-        item: {
-          title, poster, year, id, genres
-        }
-      }) => {
+      data={movies.sort((a, b) => b.year.localeCompare(a.year))}
+      renderItem={({ item }) => {
+        const {title, id, genres, poster} = item
+        const date = item['release-dateIS']
         return (
           <SingleMovie
             title={title}
             id={id}
-            year={year}
+            year={date}
             genres={genres}
             poster={poster}
             cinemaId={cinemaId}

@@ -25,13 +25,15 @@ const genresToString = async (response) => {
     let retString = ''
     genres = retMovies[i].genres
     for (let j = 0; j < genres.length; j++) {
-      if (j === genres.length - 1) {
-        retString += genres[j].Name
-      } else {
-        retString += genres[j].Name + ", "
+      if (genres[j].Name !== undefined) {
+        if (j === genres.length - 1) {
+          retString += genres[j].Name
+        } else {
+          retString += genres[j].Name + ", "
+        }
       }
+      retMovies[i].genres = retString
     }
-    retMovies[i].genres = retString
   }
   return retMovies
 }
