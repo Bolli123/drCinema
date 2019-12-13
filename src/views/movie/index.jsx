@@ -8,9 +8,10 @@ import { connect } from 'react-redux'
 class Movie extends React.Component {
   state = {
     movie: {},
-    showtimes: []
-
+    showtimes: [],
+    trailerURL: '',
     }
+
   async componentDidMount() {
     await this._fetchItems()
   }
@@ -51,15 +52,23 @@ class Movie extends React.Component {
   }
   async getUpcomingMovie(id) {
     let movie = {}
+    let trailer = ''
     const movies = this.props.upcomingMovies
     for (let i = 0; i < movies.length; i++) {
       if (movies[i].id === id) {
         movie = movies[i]
+        if (movie.trailers[0] !== undefined ) {
+          if (movie.trailers[0].results[0] !== undefined) {
+            // Only catches the first trailer for the movie
+            trailer = movies[i].trailers[0].results[0].url
+          }
+        }
         break
       }
     }
     this.setState({
       movie: movie,
+      trailerURL: trailer,
       })
     }
 
@@ -75,13 +84,14 @@ class Movie extends React.Component {
   }
 
   render() {
-    const { movie, showtimes } = this.state
+    const { movie, showtimes, trailerURL } = this.state
     return (
       <ScrollView>
         <View style={{ flex: 1}}>
           <MovieDetail
             movie={movie}
             showtimes={showtimes}
+            trailerURL={trailerURL}
           />
         </View>
       </ScrollView>

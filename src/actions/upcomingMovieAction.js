@@ -7,8 +7,7 @@ export const getAllUpcomingMovies = () => {
     try {
       const movies = await getUpcomingMovies()
       dispatch(getMoviesSuccess(movies))
-
-    }
+  }
     catch (err){
       console.log(err)
       dispatch(getMoviesFailure())

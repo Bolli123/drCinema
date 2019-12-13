@@ -40,4 +40,17 @@ export default StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 20
   },
+  videocontainer: {
+    backgroundColor: '#6ea6ff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+  },
+  video: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 250,
+    width: 320,
+  }
 });
