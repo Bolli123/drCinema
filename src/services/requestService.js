@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZGVlNGY1YWQ2MDJkMDc3OTYyOTVhN2UiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6IkJqw7ZybiBCcmVraSIsImVtYWlsIjoiYmpvcm50MThAcnUuaXMiLCJ1c2VybmFtZSI6ImJqb3JudDE4IiwicGFzc3dvcmQiOiIkMmEkMDgka0M5Q1ltdm9IeU5Sbk91Lm0ua05ldXQuZUFiemhwQ29oSUFUa29HWWJ1WndLYXF1bnplMGkiLCJkb21haW4iOiJoci5pcyIsIm1lc3NhZ2UiOiJFZHVjYXRpb25hbCBwdXJwb3NlcyAiLCJpYXQiOjE1NzYwODI1MDYsImV4cCI6MTU3NjE2ODkwNn0.8YfUvtqNkj7-I6S5ud9jCF2apzstOdueqUobSfObkf4';
+const accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZGVlNGY1YWQ2MDJkMDc3OTYyOTVhN2UiLCJnbG9iYWxhZG1pbiI6ZmFsc2UsImFkbWluIjpmYWxzZSwiYWN0aXZlIjp0cnVlLCJmdWxsbmFtZSI6IkJqw7ZybiBCcmVraSIsImVtYWlsIjoiYmpvcm50MThAcnUuaXMiLCJ1c2VybmFtZSI6ImJqb3JudDE4IiwicGFzc3dvcmQiOiIkMmEkMDgka0M5Q1ltdm9IeU5Sbk91Lm0ua05ldXQuZUFiemhwQ29oSUFUa29HWWJ1WndLYXF1bnplMGkiLCJkb21haW4iOiJoci5pcyIsIm1lc3NhZ2UiOiJFZHVjYXRpb25hbCBwdXJwb3NlcyAiLCJpYXQiOjE1NzYyMDE0NjcsImV4cCI6MTU3NjI4Nzg2N30.iRTuYfQJk2lSCvWkN6Sk7492pNcoyinNQCYKvB_MKXw';
 
 const instance = axios.create({
   baseURL: 'http://api.kvikmyndir.is',
@@ -40,6 +40,7 @@ export const getCinemas = async () => {
   try {
     let response = await instance.get('/theaters');
     response = await fixJson(response)
+    response = response.sort((a, b) => a.name.localeCompare(b.name, 'is', {sensitivity: 'base'}))
     return response
   } catch (error) {
     console.log(error)
