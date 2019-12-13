@@ -40,6 +40,7 @@ export const getCinemas = async () => {
   try {
     let response = await instance.get('/theaters');
     response = await fixJson(response)
+    response = response.sort((a, b) => a.name.localeCompare(b.name, 'is', {sensitivity: 'base'}))
     return response
   } catch (error) {
     console.log(error)
