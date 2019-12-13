@@ -3,13 +3,15 @@ import { View, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 import Cinema from '../../components/cinema'
 
+const n = require('normalize-strings');
+
 const CinemaList = ({
   cinemas
 }) => (
   <View style={{ flex: 1 }}>
     <FlatList
       numColumns={1}
-      data={cinemas.sort((a, b) => a.name.localeCompare(b.name))}
+      data={cinemas.sort((a, b) => n(a.name).localeCompare(n(b.name), 'is'))}
       renderItem={({ item: { name, website, id } }) => {
         return (
           <Cinema
