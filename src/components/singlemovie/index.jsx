@@ -17,7 +17,7 @@ const SingleMovie = ({
       <Image
         style={styles.image}
         resizeMode="cover"
-        source={{ uri: poster }}
+        source={{ uri: poster === 'https://kvikmyndir.is/images/poster/' ? 'https://lh6.googleusercontent.com/proxy/hIgFSMyx4VsuoQh8h-ZfI3IiK9uFSLZ7pG67H_1RwEBDEPiWX-odcJ0PkWriAPeqwKyC6n-12UTrNmQF2ul9DAjwKMljG3zSCCTDoTVDPexFHV9l_JD5WMbmpnUJqWLqYA=s0-d' : poster }}
       />
       <View style={styles.content}>
         <Text style={styles.text}>
