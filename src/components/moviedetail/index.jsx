@@ -61,14 +61,14 @@ const MovieDetail = ({
           ?
           <></>
           :
-          showtimes.map(station => (
+          showtimes.map(showtime => (
             <View
               style={styles.showButton}
-              key={station.purchase_url}
+              key={showtime.time}
             >
               <Button
-                title={station.time}
-                onPress={() => { Linking.openURL(station.purchase_url); }}
+                title={showtime.time}
+                onPress={() => { Linking.openURL(showtime.purchase_url); }}
               />
             </View>
           ))
@@ -92,11 +92,13 @@ MovieDetail.propTypes = {
   showtimes: PropTypes.arrayOf(PropTypes.shape({
     time: PropTypes.string.isRequired,
     purchase_url: PropTypes.string.isRequired
-  }))
+  })),
+  trailerURL: PropTypes.string
 }
 
 MovieDetail.defaultProps = {
-  showtimes: []
+  showtimes: [],
+  trailerURL: ''
 }
 
 export default withNavigation(MovieDetail);
