@@ -10,9 +10,11 @@ const Cinema = ({
 }) => (
   <View>
     <View style={styles.container}>
-      <Text style={styles.name}>
-        {cinema.name}
-      </Text>
+      <View style={styles.nameBorder}>
+        <Text style={styles.name}>
+          {cinema.name}
+        </Text>
+      </View>
       <Text style={styles.description}>
         {cinema.description}
       </Text>

@@ -1,13 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  name: {
+  nameBorder: {
     justifyContent: 'center',
-    fontSize: 25,
     borderBottomColor: '#6ea6ff',
     borderBottomWidth: 3,
     paddingBottom: 5,
     marginBottom: 10,
+  },
+  name: {
+    fontSize: 25,
   },
   description: {
     fontSize: 15,

@@ -41,7 +41,6 @@ export default StyleSheet.create({
     marginBottom: 20
   },
   videocontainer: {
-    backgroundColor: '#6ea6ff',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
