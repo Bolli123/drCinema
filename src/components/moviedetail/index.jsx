@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, Image, Button, Linking} from 'react-native';
+import { View, Text, Image, Button, Linking } from 'react-native';
+import { WebView } from 'react-native-webview';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import styles from './styles'
 import { Entypo } from '@expo/vector-icons';
 
 const MovieDetail = ({
-  movie, showtimes
+  movie, showtimes, trailerURL
 }) => (
   <View style={styles.container}>
     <View style={styles.titleContent}>
@@ -36,6 +37,24 @@ const MovieDetail = ({
     <Text style={styles.plot}>
       {movie.plot}
     </Text>
+      {
+        trailerURL !== ''
+          ?
+          <View style={styles.videocontainer}>
+            <Text styles={styles.text}>
+            {movie.trailers[0].results[0].name}
+            </Text>
+            <WebView
+            style={styles.video}
+            javaScriptEnabled={true}
+            domStorageEnabled={true}
+            source={{uri: trailerURL }}
+            />
+          </View>
+          :
+          <></>
+      }
+
     <View style={styles.showTimes}>
       {
         showtimes.length === 0
