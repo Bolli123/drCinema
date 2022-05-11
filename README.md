@@ -1,3 +1,10 @@
+
+Cinema Screen            |  Movie Screen
+:-------------------------:|:-------------------------:
+![vlc_2022-05-11_02-33-42](https://user-images.githubusercontent.com/42970032/167757378-c42c9666-e751-4f12-8f82-8a45a3c5a24d.png)  |  ![vlc_2022-05-11_02-34-05](https://user-images.githubusercontent.com/42970032/167757388-4fb6adc2-6e29-4378-a4be-f8ef8c0a49f3.png)
+
+
+
 # Dr.Cinema
 - [x] (15%) Cinemas screen 
 	- [x] (10%) A user should see a list of all cinemas 
